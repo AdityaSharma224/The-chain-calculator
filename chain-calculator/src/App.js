@@ -1,11 +1,11 @@
 import './App.css';
 import backgroundImage from './assets/polka-dots.png';
-import { FunctionCardComponent } from './components/function-card';
+import { FunctionChain } from './components/function-chain';
 
 function App() {
   return (
     <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <FunctionCardComponent/>
+      <FunctionChain/>
     </div>
   );
 }

@@ -1,26 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import dragIcon from "../../assets/drag-icon.svg";
 import "./function-card-styles.css";
 
-const FunctionCardComponent = ({ functionNumber }) => {
+const FunctionCardComponent = ({ functionNo, equation, onEquationChange, nextFunction }) => {
 
     return (
         <div className="cardWrapper">
             <div className="header">
                 <img src={dragIcon} alt="Drag Icon" className="dragIcon" />
-                <p className="headerText">{`Function: ${'1'}`}</p>
+                <p className="headerText">{`Function: ${functionNo}`}</p>
             </div>
-
             <div className="functionBody">
                 <div className="equationWrapper">
                     <p>{'Equation'}</p>
-                    <input type="text" className="input" />
+                    <input
+                        type="text"
+                        className="input"
+                        value={equation}
+                        onChange={(e) => onEquationChange(e.target.value)}
+                    />
                 </div>
                 <div className="dropDownWrapper">
                     <p>{'Next function'}</p>
                     <select className="input" disabled>
-                        <option>{'Next Function'}</option>
+                        <option>{nextFunction}</option>
                     </select>
                 </div>
             </div>
@@ -31,7 +35,6 @@ const FunctionCardComponent = ({ functionNumber }) => {
                     </div>
                     <p className="inputOutputText">{'input'}</p>
                 </div>
-
                 <div className="connectorWrapper">
                     <p className="inputOutputText">{'output'}</p>
                     <div className="connector">
@@ -44,7 +47,7 @@ const FunctionCardComponent = ({ functionNumber }) => {
 };
 
 FunctionCardComponent.propTypes = {
-    functionName: PropTypes.string.isRequired,
+    functionNo: PropTypes.string.isRequired,
     equation: PropTypes.string.isRequired,
     onEquationChange: PropTypes.func.isRequired,
     nextFunction: PropTypes.string.isRequired,

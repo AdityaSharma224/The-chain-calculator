@@ -1,0 +1,5 @@
+
+.functionChainWrapper{
+    display: flex;
+    flex-direction: row;
+}

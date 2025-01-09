@@ -1,0 +1,1 @@
+export { default as FunctionChain } from './function-chain-component';
