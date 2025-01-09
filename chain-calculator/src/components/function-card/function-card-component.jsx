@@ -24,6 +24,21 @@ const FunctionCardComponent = ({ functionNumber }) => {
                     </select>
                 </div>
             </div>
+            <div className="inputOutputWrapper">
+                <div className="connectorWrapper">
+                    <div className="connector">
+                        <div className="connectorChild" />
+                    </div>
+                    <p className="inputOutputText">{'input'}</p>
+                </div>
+
+                <div className="connectorWrapper">
+                    <p className="inputOutputText">{'output'}</p>
+                    <div className="connector">
+                        <div className="connectorChild" />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

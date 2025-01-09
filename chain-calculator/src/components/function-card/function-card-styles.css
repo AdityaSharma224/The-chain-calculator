@@ -80,3 +80,41 @@
     margin-top: 0;
     background-color: #F5F5F5;
 }
+
+.inputOutputWrapper{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.connectorWrapper{
+    display:flex ;
+    align-items: center;
+    width: 56px;
+    justify-content: space-between;
+}
+.connector{
+    display: flex;
+    border: 3px solid #DBDBDB;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.connectorChild{
+    display: flex;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #1976D2;
+}
+
+.inputOutputText{
+    color:#585757;
+    font-size: 10px;
+    line-height: 12.1px;
+}
