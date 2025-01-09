@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './function-chain-styles.css'
+import "./function-chain-styles.css";
 import FunctionCardComponent from "../function-card/function-card-component";
 
 const FunctionChain = () => {
@@ -9,7 +9,7 @@ const FunctionChain = () => {
         { name: "2", equation: "", next: "4" },
         { name: "4", equation: "", next: "5" },
         { name: "5", equation: "", next: "3" },
-        { name: "3", equation: "", next: "End" },
+        { name: "3", equation: "", next: null },
     ]);
     const [finalOutput, setFinalOutput] = useState(0);
 
@@ -20,15 +20,31 @@ const FunctionChain = () => {
 
     const calculateOutput = () => {
         let x = parseFloat(initialInput);
-        functions.forEach((func) => {
-            if (validateEquation(func.equation)) {
+        let currentFunction = functions.find((func) => func.name === "1");
+    
+        while (currentFunction) {
+            if (validateEquation(currentFunction.equation)) {
                 try {
-                    x = eval(func.equation.replace(/x/g, x));
+                    const processedEquation = currentFunction.equation
+                        .replace(/(\d)x/g, "$1*x")
+                        .replace(/x/g, `(${x})`)
+                        .replace(/\^/g, "**");
+    
+                    x = eval(processedEquation);
                 } catch (e) {
-                    console.error("Invalid equation:", func.equation);
+                    console.error("Invalid equation:", currentFunction.equation);
+                    break;
                 }
+            } else {
+                console.error("Invalid equation format:", currentFunction.equation);
+                break;
             }
-        });
+    
+            currentFunction = currentFunction.next
+                ? functions.find((func) => func.name === currentFunction.next)
+                : null;
+        }
+    
         setFinalOutput(x);
     };
 
