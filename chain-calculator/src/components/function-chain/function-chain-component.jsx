@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./function-chain-styles.css";
 import FunctionCardComponent from "../function-card/function-card-component";
 import Connector from '../connector/connector-component'
+import Divider from '../divider/divider-component'
 
 const FunctionChain = () => {
     const [initialInput, setInitialInput] = useState(0);
@@ -70,13 +71,7 @@ const FunctionChain = () => {
                         className="inputBox"
                         onChange={(e) => setInitialInput(e.target.value)}
                     />
-                    <div style={{
-                        height: '48px',
-                        border: '1px solid #FFEED5',
-                        marginTop: '1px',
-                        transform: 'scaleX(0.4)',
-                    }}
-                    />
+                    <Divider color={'#FFEED5'}/>
                     <div style={{ marginLeft: '15px' }}>
                         <Connector />
                     </div>
@@ -93,28 +88,16 @@ const FunctionChain = () => {
                     />
                 ))}
             </div>
-            <div>
+            <div className="outputWrapper">
                 <div className='outputTitle'><p>{'Final Output y'}</p></div>
                 <div className="finalOutputBox">
                     <div style={{ marginLeft: '15px' }}>
                         <Connector />
                     </div>
-                    <div style={{
-                        height: '48px',
-                        border: '1px solid #C5F2DA',
-                        marginTop: '1px',
-                        transform: 'scaleX(0.4)',
-                        marginLeft: '10px',
-                    }}
-                    />
-                    <p style={{
-                        fontSize: '12px',
-                        fontWeight: 600,
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                        whiteSpace: 'nowrap',
-                        marginleft:'20px',
-                    }}>{finalOutput}</p>
+                    <div style={{marginLeft:'10px'}}>
+                        <Divider color={'#C5F2DA'}/>
+                    </div>
+                    <p className="finalOutput">{finalOutput}</p>
                 </div>
             </div>
         </div>
