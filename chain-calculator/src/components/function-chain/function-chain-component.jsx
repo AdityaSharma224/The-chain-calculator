@@ -3,6 +3,7 @@ import "./function-chain-styles.css";
 import FunctionCardComponent from "../function-card/function-card-component";
 import Connector from '../connector/connector-component'
 import Divider from '../divider/divider-component'
+import { validateEquation, calculateFunctionChain } from "../../utils/equationUtils";
 
 const FunctionChain = () => {
     const [initialInput, setInitialInput] = useState(0);
