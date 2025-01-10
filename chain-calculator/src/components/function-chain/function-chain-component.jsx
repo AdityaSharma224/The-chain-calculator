@@ -55,14 +55,7 @@ const FunctionChain = () => {
   }, [initialInput, functions]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "100%",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className="wrapper">
       <div className="inputWrapper">
         <div className="initialInputTextWrapper">
           <p>{"Initial value of x"}</p>
