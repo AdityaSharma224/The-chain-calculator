@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Function Chain
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React application that allows users to create and evaluate a chain of mathematical functions. Each function in the chain can be defined by an equation, and the output of one function serves as the input to the next.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dynamic Function Chain**: Users can define a series of functions, each with its own equation.
+- **Equation Validation**: Ensures that only valid equations are accepted.
+- **Real-time Calculation**: Automatically calculates the final output based on the initial input and the defined functions.
 
-### `npm start`
+## Components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### FunctionChain
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This is the main component that manages the state and logic of the function chain.
 
-### `npm test`
+#### State
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `initialInput`: The initial value of `x`.
+- `functions`: An array of function objects, each containing a name, equation, and the name of the next function.
+- `finalOutput`: The final calculated output.
 
-### `npm run build`
+#### Methods
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `handleEquationChange(index, newEquation)`: Updates the equation of a function at the specified index.
+- `calculateOutput()`: Calculates the final output based on the initial input and the defined functions.
+- `handleInputOnchange(e)`: Updates the initial input value.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Lifecycle
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `useEffect()`: Recalculates the output whenever the initial input or functions change.
 
-### `npm run eject`
+### FunctionCardComponent
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This component represents an individual function card in the chain.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Props
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `functionNo`: The name/number of the function.
+- `equation`: The equation defined for the function.
+- `onEquationChange`: Callback to handle changes to the equation.
+- `nextFunction`: The name/number of the next function in the chain.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Utility Functions
 
-## Learn More
+### equationUtils
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `isValidEquation(equation)`: Validates the given equation.
+- `evaluateEquation(equation, input)`: Evaluates the equation with the given input.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Styles
 
-### Code Splitting
+- `function-chain-styles.css`: Styles for the `FunctionChain` component.
+- `function-card-styles.css`: Styles for the `FunctionCardComponent`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Run the application using `npm start`.
+4. Define the initial input value.
+5. Define equations for each function in the chain.
+6. View the final output as it updates in real-time.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Example
 
-### Making a Progressive Web App
+```jsx
+import React from "react";
+import ReactDOM from "react-dom";
+import FunctionChain from "./components/function-chain/function-chain-component";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ReactDOM.render(<FunctionChain />, document.getElementById("root"));
