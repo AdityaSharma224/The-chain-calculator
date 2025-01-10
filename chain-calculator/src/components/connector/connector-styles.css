@@ -1,0 +1,17 @@
+.connector{
+    display: flex;
+    border: 3px solid #DBDBDB;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.connectorChild{
+    display: flex;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #1976D2;
+}

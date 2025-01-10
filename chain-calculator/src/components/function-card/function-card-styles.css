@@ -95,6 +95,7 @@
     width: 56px;
     justify-content: space-between;
 }
+
 .connector{
     display: flex;
     border: 3px solid #DBDBDB;

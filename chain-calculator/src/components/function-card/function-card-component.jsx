@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import dragIcon from "../../assets/drag-icon.svg";
 import "./function-card-styles.css";
+import Connector from "../connector/connector-component";
 
 const FunctionCardComponent = ({ functionNo, equation, onEquationChange, nextFunction }) => {
 
@@ -30,16 +31,12 @@ const FunctionCardComponent = ({ functionNo, equation, onEquationChange, nextFun
             </div>
             <div className="inputOutputWrapper">
                 <div className="connectorWrapper">
-                    <div className="connector">
-                        <div className="connectorChild" />
-                    </div>
+                    <Connector />
                     <p className="inputOutputText">{'input'}</p>
                 </div>
                 <div className="connectorWrapper">
                     <p className="inputOutputText">{'output'}</p>
-                    <div className="connector">
-                        <div className="connectorChild" />
-                    </div>
+                    <Connector />
                 </div>
             </div>
         </div>

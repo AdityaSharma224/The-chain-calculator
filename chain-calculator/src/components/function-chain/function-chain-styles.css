@@ -1,5 +1,82 @@
-
 .functionChainWrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    margin-right: 60px;
+}
+
+.inputWrapper{
+    margin-right: 20px;
+}
+
+.inputWrapper, .finalOutputBox {
+    grid-column: span 3;
+}
+
+.initialInputTextWrapper{
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 15px;
+    border-radius: 14px;
+    background-color: #E29A2D;
+    margin-bottom: 8px;
+    padding: 2px 0px;
+}
+
+.initialInputTextWrapper p{
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+}
+.initialInputBox{
+    width: 115px;
+    height: 50px;
+    border-radius: 15px;
+    border:2px solid #FFC267;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputBox{
+    border: none;
+    outline: none;
+    font-weight: 600;
+    width: 50px;
+}
+
+.inputBox::-webkit-inner-spin-button, 
+.inputBox::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove spinners in Chrome, Safari, Edge */
+    margin: 0; /* Remove any extra margin */
+}
+
+.outputTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 15px;
+    border-radius: 14px;
+    background-color: #4CAF79;
+    margin-bottom: 8px;
+    padding: 2px 0px;
+}
+
+.outputTitle p{
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.finalOutputBox{
+    width: 115px;
+    height: 50px;
+    border-radius: 15px;
+    border:2px solid #2DD179;
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
 }
