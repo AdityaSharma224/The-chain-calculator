@@ -17,15 +17,15 @@ const FunctionChain = () => {
   const [finalOutput, setFinalOutput] = useState(0);
 
   const handleEquationChange = (index, newEquation) => {
-    if (!isValidEquation(newEquation)) {
+    if (newEquation === "" || isValidEquation(newEquation)) {
+      const updatedFunctions = [...functions];
+      updatedFunctions[index].equation = newEquation;
+      setFunctions(updatedFunctions);
+    } else {
       alert(
         "Invalid equation! Please use only numbers, x, and +, -, *, /, ^ operators."
       );
-      return;
     }
-    const updatedFunctions = [...functions];
-    updatedFunctions[index].equation = newEquation;
-    setFunctions(updatedFunctions);
   };
 
   const calculateOutput = useCallback(() => {
